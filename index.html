@@ -23,7 +23,8 @@
         <h1>Haymes</h1>
       </div>
       <div class="col-4 text-end">
-        <a class="bi bi-plus-circle-fill add-task-icon" href="#" role="button"></a>
+        <a class="bi bi-plus-circle-fill add-task-icon" data-bs-toggle="modal" data-bs-target="#addTaskForm"
+          role="button"></a>
         <a class="bi bi-check-circle-fill add-task-icon" href="#" role="button"></a>
       </div>
     </div>
@@ -40,19 +41,22 @@
       <ul>
         <li class="col-4 list-inline-item">
           <div class="card">
-            <a data-bs-toggle="collapse" href="#card-body-1">
+            <a data-bs-toggle="collapse" href="#card-collapse-1">
 
               <div class="card-header">
                 Create Cards / List Group
               </div>
             </a>
-            <div class="card-body" id="card-body-1">
-              <h5 class="card-title"> ICON Meng </h5>
-              <p class="card-text">17 May 2021</p>
-              <p class="card-text">To do</p>
-              <p class="card-text">This is the task description. It describes the task. Describing the task is what this
-                does. Should the reference of this task be unclear, this is where you would check. </p>
+            <div class="collapse" id="card-collapse-1">
+              <div class="card-body">
+                <h5 class="card-title"> ICON Meng </h5>
+                <p class="card-text">17 May 2021</p>
+                <p class="card-text">To do</p>
+                <p class="card-text">This is the task description. It describes the task. Describing the task is what
+                  this
+                  does. Should the reference of this task be unclear, this is where you would check. </p>
 
+              </div>
             </div>
           </div>
         </li>
@@ -142,52 +146,58 @@
           </div>
         </li>
       </ul>
-    
+
 
     </div>
   </div>
 
 
-   <!-- CARD LAYOUT ENDS -->
+  <!-- CARD LAYOUT ENDS -->
 
   <!-- FORM STARTS HERE -->
-  <div class="container taskform">
-    <form>
-      <div class="row">
-        <div class="mb-3 col-md-6">
-          <label for="taskName" class="form-label">Task Name</label>
-          <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName">
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="assignedTo" class="form-label">Assigned To</label>
-          <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo">
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="dueDate" class="form-label">Due Date</label>
-          <input type="text" placeholder="Due Date" class="form-control" id="dueDate" name="dueDate">
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="taskStatus" class="form-label"> Task Status</label>
-          <select class="form-select" aria-label="Default select example" name="taskStatus">
-            <option selected>Select Task Status</option>
-            <option value="1">To Do</option>
-            <option value="2">In Progress</option>
-            <option value="3">Review</option>
-            <option value="4" class="taskStatusDone">Done</option>
-          </select>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label for="descriptionBox" class="form-label">Description</label>
-          <textarea type="text" class="form-control" id="descriptionBox" name="description"></textarea>
-        </div>
+  <div class="modal fade" id="addTaskForm" aria-hidden="true">
 
-        <div><button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+    <div class="modal-dialog taskform">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="taskName" class="form-label">Task Name</label>
+                <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="assignedTo" class="form-label">Assigned To</label>
+                <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="dueDate" class="form-label">Due Date</label>
+                <input type="text" placeholder="Due Date" class="form-control" id="dueDate" name="dueDate">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="taskStatus" class="form-label"> Task Status</label>
+                <select class="form-select" aria-label="Default select example" name="taskStatus">
+                  <option selected>Select Task Status</option>
+                  <option value="1">To Do</option>
+                  <option value="2">In Progress</option>
+                  <option value="3">Review</option>
+                  <option value="4" class="taskStatusDone">Done</option>
+                </select>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="descriptionBox" class="form-label">Description</label>
+                <textarea type="text" class="form-control" id="descriptionBox" name="description"></textarea>
+              </div>
 
+              <div><button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
-  </div>
+
 
   <!-- FORM ENDS HERE -->
 
