@@ -1,8 +1,30 @@
+.icon-meng {
+  border: 2px solid orange;
+  border-radius: 50%;
+  background-color: rgba(255, 165, 0, 0.75);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.icon-hayley {
+  border: 2px solid purple;
+  border-radius: 50%;
+  background-color: rgba(128, 0, 128, 0.75);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
 .add-task-icon {
   font-size: 50px;
   text-decoration: none;
   color: rgb(255, 255, 255);
   padding: 0 5px;
+}
+
+.card-title {
+  display: flex;
 }
 
 .taskStatusDone {
@@ -19,6 +41,11 @@
 
 .taskStatusToDo {
   color: rgb(61, 65, 255);
+}
+
+.taskStatusToDo-border {
+  border: 1px solid rgba(61, 65, 255, 0.2);
+  border-radius: 4px;
 }
 
 .taskform {
