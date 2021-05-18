@@ -1,9 +1,24 @@
 .add-task-icon {
   font-size: 50px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 0 5px;
 }
 
 .taskStatusDone {
-  color: grey;
+  color: rgb(200, 0, 0);
+}
+
+.taskStatusReview {
+  color: rgb(216, 158, 0);
+}
+
+.taskStatusInProgress {
+  color: rgb(0, 126, 10);
+}
+
+.taskStatusToDo {
+  color: rgb(61, 65, 255);
 }
 
 .taskform {
@@ -17,13 +32,7 @@
 .card {
   width: auto;
   height: auto;
-  margin: 10px;
-}
-
-.cardlist {
-  display: inline-block;
-  flex-direction: column;
-  flex-wrap: wrap;
+  /* margin: 10px; */
 }
 
 a {
@@ -32,4 +41,10 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+@media only screen and (min-width: 1420px) {
+  body {
+    padding: 0 4%;
+  }
 }
