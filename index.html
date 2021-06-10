@@ -11,6 +11,8 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="./css/style.css" rel="stylesheet">
+ 
+  <script src="./js/index.js" defer> </script>
 
   <title>Haymes Task Planner</title>
 </head>
@@ -449,11 +451,13 @@
     <div class="modal-dialog taskform">
       <div class="modal-content">
         <div class="modal-body">
-          <form>
+          <form class="needs-validation" novalidate>
             <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="taskName" class="form-label">Task Name</label>
-                <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName">
+                <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName" minlength="5">
+                <div class="valid-feedback">All good</div>
+                <div class="invalid-feedback">Requires text</div>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="assignedTo" class="form-label">Assigned To</label>
@@ -465,8 +469,8 @@
               </div>
               <div class="mb-3 col-md-6">
                 <label for="taskStatus" class="form-label"> Task Status</label>
-                <select class="form-select" aria-label="Default select example" name="taskStatus">
-                  <option selected>Select Task Status</option>
+                <select class="form-select custom-select" aria-label="Default select example" name="taskStatus" id="taskStatus">
+                  <option value="" selected>Select Task Status</option>
                   <option value="1" class="taskStatusToDo">To Do</option>
                   <option value="2" class="taskStatusInProgress">In Progress</option>
                   <option value="3" class="taskStatusReview">Review</option>
@@ -478,7 +482,7 @@
                 <textarea type="text" class="form-control" id="descriptionBox" name="description"></textarea>
               </div>
 
-              <div><button type="submit" class="btn btn-primary">Submit</button>
+              <div><button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
               </div>
           </form>
         </div>
