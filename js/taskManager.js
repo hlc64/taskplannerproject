@@ -35,6 +35,11 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
           <p class="card-text ${statusClass[status]}">${statusMap[status]}</p>
           <p class="card-text">${description}</p>
         </div>
+        <div class="card-footer py-0 d-flex justify-content-end align-items-center">
+          <i class="bi bi-check2-square card-icon card-icon-check mx-1"></i>
+          <i class="bi bi-pencil-square card-icon card-icon-edit mx-1"></i>
+          <i class="bi bi-trash card-icon card-icon-delete mx-1"></i>
+        </div>
       </div>
     </li>
   `;
