@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col mx-3">
         <h3 class="taskStatusToDo bg-light taskStatusToDo-border">TO DO</h3>
-        <ul class="list-group list-group-flush">
+        <ul id="toDoList" class="list-group list-group-flush">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             <a data-bs-toggle="collapse" href="#card-collapse-1">
 
@@ -170,7 +170,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusInProgress bg-light taskStatusInProgress-border">IN PROGRESS</h3>
-        <ul class="list-group">
+        <ul id="inProgressList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
            
               <a data-bs-toggle="collapse" href="#card-collapse-6">
@@ -224,7 +224,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusReview bg-light taskStatusReview-border">REVIEW</h3>
-        <ul class="list-group">
+        <ul id="reviewList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             
               <a data-bs-toggle="collapse" href="#card-collapse-8">
@@ -307,7 +307,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusDone bg-light taskStatusDone-border">DONE</h3>
-        <ul class="list-group">
+        <ul id="doneList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             
               <a data-bs-toggle="collapse" href="#card-collapse-11">
@@ -458,19 +458,19 @@
                 <label for="taskName" class="form-label">Task Name</label>
                 <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName" minlength="5" required>
                 <div class="invalid-feedback">Requires at least 5 characters.</div>
-                <div class="valid-feedback">All good!</div>
+            
               </div>
               <div class="mb-3 col-md-6">
                 <label for="assignedTo" class="form-label">Assigned To</label>
-                <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo" minlength="5" required>
-                <div class="invalid-feedback">Requires at least 5 characters.</div>
-                <div class="valid-feedback">All good!</div>
+                <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo" required>
+                <div class="invalid-feedback">Requires a name.</div>
+                
               </div>
               <div class="mb-3 col-md-6">
                 <label for="dueDate" class="form-label">Due Date</label>
                 <input type="date" placeholder="Due Date" class="form-control" id="dueDate" name="dueDate" required>
                 <div class="invalid-feedback">Can't be in the past</div>
-                <div class="valid-feedback">All good!</div>
+              
               </div>
               <div class="mb-3 col-md-6">
                 <label for="taskStatus" class="form-label"> Task Status</label>
@@ -482,13 +482,13 @@
                   <option value="4" class="taskStatusDone">Done</option>
                 </select>
                 <div class="invalid-feedback">Please select a Task Status</div>
-                <div class="valid-feedback">All good!</div>
+               
               </div>
               <div class="mb-3 col-md-6">
                 <label for="descriptionBox" class="form-label">Description</label>
                 <textarea type="text" class="form-control" id="descriptionBox" name="description" minlength="5" required></textarea>
                 <div class="invalid-feedback">Please descibe the task.</div>
-                <div class="valid-feedback">All good!</div>
+               
               </div>
 
               <div><button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>

@@ -35,11 +35,12 @@ window.addEventListener('load', function () {
           dueDate.value,
           taskStatus.value
         );
-        console.log(html);
+        
 
         event.preventDefault();
         document.querySelector('form').reset();
         console.log(hmTaskManager.tasks);
+        hmTaskManager.render();
       }
     }, false);
   });

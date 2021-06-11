@@ -12,6 +12,11 @@ const statusClass = {
   '4': 'taskStatusDone',
 }
 
+const iconClass = {
+  'meng': 'icon-meng',
+  'hayley': 'icon-hayley'
+}
+
 const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
   const html = `
     <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
@@ -24,7 +29,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
     <div class="collapse show" id="card-collapse-1">
       <div class="card-body">
         <h5 class="card-title">
-          <div class="icon-meng me-2"></div> ${assignedTo}
+          <div class="${iconClass[assignedTo.toLowerCase()]} me-2"></div> ${assignedTo}
         </h5>
         <p class="card-text">${dueDate}</p>
         <p class="card-text ${statusClass[status]}">${statusMap[status]}</p>
@@ -49,7 +54,7 @@ class TaskManager {
     this._currentId++;
     this._tasks.push(
       {
-        id: this.currentId,
+        id: this._currentId,
         name: name,
         description: description,
         assignedTo: assignedTo,
@@ -58,4 +63,47 @@ class TaskManager {
       }
     );
   }
+  render() {
+    const htmlListToDo = [];
+    const htmlListInProgress = [];
+    const htmlListReview = [];
+    const htmlListDone = [];
+    for (const task of hmTaskManager.tasks) {
+      const date = new Date(task.dueDate);
+      const formattedDate = date.toDateString();
+      console.log(formattedDate);
+      const taskHtml = createTaskHtml(
+        task.name,
+        task.description,
+        task.assignedTo,
+        formattedDate,
+        task.status
+      )
+      switch (task.status) {
+        case '1':
+          htmlListToDo.push(taskHtml);
+          break;
+        case '2':
+          htmlListInProgress.push(taskHtml);
+          break;
+        case '3': 
+          htmlListReview.push(taskHtml);
+          break;
+        case '4':
+          htmlListDone.push(taskHtml);
+          break;
+        default: 
+          console.error('Status not found');
+      }
+   }
+   const toDoHtml = htmlListToDo.join('\n');
+   const inProgressHtml = htmlListInProgress.join('\n');
+   const reviewHtml = htmlListReview.join('\n');
+   const doneHtml = htmlListDone.join('\n'); 
+   document.querySelector('#toDoList').innerHTML = toDoHtml;
+   document.querySelector('#inProgressList').innerHTML = inProgressHtml;
+   document.querySelector('#reviewList').innerHTML = reviewHtml;
+   document.querySelector('#doneList').innerHTML = doneHtml;
+  }
 }
+
