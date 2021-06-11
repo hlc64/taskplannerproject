@@ -20,23 +20,22 @@ const iconClass = {
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
     <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-    <a data-bs-toggle="collapse" href="#card${id}">
+      <a data-bs-toggle="collapse" href="#card${id}">
 
-      <div class="card-header m-0">
-        ${name}
-      </div>
-    </a>
-    <div class="collapse show" id="card${id}">
-      <div class="card-body">
-        <h5 class="card-title">
-          <div class="${iconClass[assignedTo.toLowerCase()]} me-2"></div> ${assignedTo}
-        </h5>
-        <p class="card-text">${dueDate}</p>
-        <p class="card-text ${statusClass[status]}">${statusMap[status]}</p>
-        <p class="card-text">${description}</p>
+        <div class="card-header m-0">
+          ${name}
+        </div>
+      </a>
+      <div class="collapse show" id="card${id}">
+        <div class="card-body">
+          <h5 class="card-title">
+            <div class="${iconClass[assignedTo.toLowerCase()]} me-2"></div> ${assignedTo}
+          </h5>
+          <p class="card-text">${dueDate}</p>
+          <p class="card-text ${statusClass[status]}">${statusMap[status]}</p>
+          <p class="card-text">${description}</p>
         </div>
       </div>
-      <!-- </div> -->
     </li>
   `;
   return html;

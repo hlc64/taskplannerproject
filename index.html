@@ -29,7 +29,8 @@
       <div class="col-4 text-end">
         <a class="bi bi-plus-circle-fill add-task-icon" data-bs-toggle="modal" data-bs-target="#addTaskForm"
           role="button"></a>
-        <a class="bi bi-check-circle-fill add-task-icon" href="#" role="button"></a>
+          <i class="bi "></i>
+        <a class="bi bi-info-circle-fill add-task-icon" href="#" role="button"></a>
       </div>
     </div>
 
@@ -451,6 +452,10 @@
 
     <div class="modal-dialog taskform">
       <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create a Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="modal-body">
           <form class="needs-validation" novalidate>
             <div class="row">
@@ -491,7 +496,8 @@
                
               </div>
 
-              <div><button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnSubmit">Add Task</button>
               </div>
           </form>
         </div>
