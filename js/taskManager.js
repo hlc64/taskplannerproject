@@ -17,16 +17,16 @@ const iconClass = {
   'hayley': 'icon-hayley'
 }
 
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
     <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-    <a data-bs-toggle="collapse" href="#card-collapse-1">
+    <a data-bs-toggle="collapse" href="#card${id}">
 
       <div class="card-header m-0">
         ${name}
       </div>
     </a>
-    <div class="collapse show" id="card-collapse-1">
+    <div class="collapse show" id="card${id}">
       <div class="card-body">
         <h5 class="card-title">
           <div class="${iconClass[assignedTo.toLowerCase()]} me-2"></div> ${assignedTo}
@@ -71,8 +71,9 @@ class TaskManager {
     for (const task of hmTaskManager.tasks) {
       const date = new Date(task.dueDate);
       const formattedDate = date.toDateString();
-      console.log(formattedDate);
+      // console.log(formattedDate);
       const taskHtml = createTaskHtml(
+        task.id,
         task.name,
         task.description,
         task.assignedTo,
