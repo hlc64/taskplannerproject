@@ -28,23 +28,24 @@ window.addEventListener('load', function () {
           dueDate.value,
           taskStatus.value
         );
-        const html = createTaskHtml(
-          taskName.value, 
-          descriptionBox.value, 
-          assignedTo.value, 
-          dueDate.value,
-          taskStatus.value
-        );
+        // const html = createTaskHtml(
+        //   taskName.value, 
+        //   descriptionBox.value, 
+        //   assignedTo.value, 
+        //   dueDate.value,
+        //   taskStatus.value
+        // );
         
 
         event.preventDefault();
         document.querySelector('form').reset();
-        console.log(hmTaskManager.tasks);
+        // console.log(hmTaskManager.tasks);
         hmTaskManager.render();
       }
     }, false);
   });
 
+  // setting the minimum valid due date in the form
   const today = new Date();
   const dueDate = document.querySelector('#dueDate');
 
@@ -54,5 +55,11 @@ window.addEventListener('load', function () {
 
   const todaysDate = `${yyyy}-${mm}-${dd}`;
   dueDate.setAttribute('min', todaysDate);
+
+  // generate random tasks and render them
+  for (let i = 0; i < 15; i++)
+    hmTaskManager.addRandomTask();
+  
+  hmTaskManager.render();
 
 }, false);

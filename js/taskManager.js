@@ -63,6 +63,7 @@ class TaskManager {
       }
     );
   }
+
   render() {
     const htmlListToDo = [];
     const htmlListInProgress = [];
@@ -106,5 +107,29 @@ class TaskManager {
    document.querySelector('#reviewList').innerHTML = reviewHtml;
    document.querySelector('#doneList').innerHTML = doneHtml;
   }
-}
 
+  addRandomTask() {
+    const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)];
+    const getRandomInt = (startNumber, window) => startNumber + Math.floor( Math.random() * window );
+    const randomDateString = () => `${getRandomInt(2021, 5)}-${getRandomInt(1, 12)}-${getRandomInt(1, 28)}`;
+
+    const namesList = ['Create Cards / List Group', 'Implement Card Status', 'Mark as Done Buttons', 'Create Render Method'];
+    const assignedToList = ['Meng', 'Hayley'];
+    const statusList = ['1', '2', '3', '4'];
+
+    const descList = [
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aut unde exercitationem iusto odit quos consequuntur ducimus sequi veniam corporis? Saepe explicabo inventore voluptates, soluta impedit deleniti harum natus recusandae!',
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora culpa magnam animi nisi earum ipsam illo tempore cupiditate officia qui eos, reprehenderit aliquid dolor quam, cum libero? Quasi, tenetur fugit.',
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, sed. Maxime incidunt, mollitia minima tempore minus nemo possimus? Cum voluptates eveniet assumenda fugit delectus sapiente. Eligendi placeat fugiat nulla excepturi?'
+    ];
+
+    this.addTask(
+      getRandomElement(namesList),
+      getRandomElement(descList),
+      getRandomElement(assignedToList),
+      randomDateString(),
+      getRandomElement(statusList)
+    );
+
+  }
+}
