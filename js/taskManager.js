@@ -19,7 +19,7 @@ const iconClass = {
 
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
-    <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
+    <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3" data-task-id="${id}">
       <a data-bs-toggle="collapse" href="#card${id}">
 
         <div class="card-header m-0">
@@ -110,6 +110,16 @@ class TaskManager {
    document.querySelector('#inProgressList').innerHTML = inProgressHtml;
    document.querySelector('#reviewList').innerHTML = reviewHtml;
    document.querySelector('#doneList').innerHTML = doneHtml;
+  }
+
+  getTaskById(taskId) {
+    return this.tasks.find(x => x.id === taskId);
+    
+    // for (let x in this.tasks) {
+    //   if (x.id === taskId) {
+    //     foundTask = x;
+    //   }
+    // }
   }
 
   addRandomTask() {

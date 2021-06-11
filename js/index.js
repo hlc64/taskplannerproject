@@ -63,3 +63,24 @@ window.addEventListener('load', function () {
   hmTaskManager.render();
 
 }, false);
+
+
+const taskLists = document.querySelectorAll('.list-group');
+
+
+/**
+ * IMPORTANT!!!
+ *  GO OVER CODE TO UNDERSTAND on Tuesday!
+ */
+for (const list of taskLists) {
+  list.addEventListener('click', evt => {
+    const element = evt.target;
+    if (element.classList.contains('card-icon-check')) {
+      const card = element.parentNode.parentNode.parentNode;
+      const id = Number(card.getAttribute('data-task-id'));
+      const task = hmTaskManager.getTaskById(id);
+      task.status = '4';
+      hmTaskManager.render();
+    }
+  });
+}
