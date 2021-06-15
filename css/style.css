@@ -73,6 +73,32 @@ a {
   text-decoration: none;
 }
 
+.card-footer {
+  min-height: 50px;
+}
+
+.card-icon {
+  font-size: 1.5em;
+  color: gray;
+  transition: all 0.2s;
+}
+
+.card-icon:hover {
+  font-size: 2em;
+}
+
+.card-icon-check:hover {
+  color:green;
+}
+
+.card-icon-edit:hover {
+  color: rgb(77, 77, 255);
+}
+
+.card-icon-delete:hover {
+  color: rgb(173, 52, 52);
+}
+
 @media only screen and (min-width: 1420px) {
   body {
     padding: 0 4%;

@@ -11,6 +11,9 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="./css/style.css" rel="stylesheet">
+ 
+  <script src="./js/taskManager.js" defer> </script>
+  <script src="./js/index.js" defer> </script>
 
   <title>Haymes Task Planner</title>
 </head>
@@ -26,7 +29,8 @@
       <div class="col-4 text-end">
         <a class="bi bi-plus-circle-fill add-task-icon" data-bs-toggle="modal" data-bs-target="#addTaskForm"
           role="button"></a>
-        <a class="bi bi-check-circle-fill add-task-icon" href="#" role="button"></a>
+          <i class="bi "></i>
+        <a class="bi bi-info-circle-fill add-task-icon" href="#" role="button"></a>
       </div>
     </div>
 
@@ -38,7 +42,7 @@
     <div class="row">
       <div class="col mx-3">
         <h3 class="taskStatusToDo bg-light taskStatusToDo-border">TO DO</h3>
-        <ul class="list-group list-group-flush">
+        <ul id="toDoList" class="list-group list-group-flush">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             <a data-bs-toggle="collapse" href="#card-collapse-1">
 
@@ -167,7 +171,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusInProgress bg-light taskStatusInProgress-border">IN PROGRESS</h3>
-        <ul class="list-group">
+        <ul id="inProgressList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
            
               <a data-bs-toggle="collapse" href="#card-collapse-6">
@@ -221,7 +225,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusReview bg-light taskStatusReview-border">REVIEW</h3>
-        <ul class="list-group">
+        <ul id="reviewList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             
               <a data-bs-toggle="collapse" href="#card-collapse-8">
@@ -304,7 +308,7 @@
       </div>
       <div class="col mx-3">
         <h3 class="taskStatusDone bg-light taskStatusDone-border">DONE</h3>
-        <ul class="list-group">
+        <ul id="doneList" class="list-group">
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             
               <a data-bs-toggle="collapse" href="#card-collapse-11">
@@ -448,37 +452,52 @@
 
     <div class="modal-dialog taskform">
       <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create a Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="modal-body">
-          <form>
+          <form class="needs-validation" novalidate>
             <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="taskName" class="form-label">Task Name</label>
-                <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName">
+                <input type="text" placeholder="Name of task" class="form-control" id="taskName" name="taskName" minlength="5" required>
+                <div class="invalid-feedback">Requires at least 5 characters.</div>
+            
               </div>
               <div class="mb-3 col-md-6">
                 <label for="assignedTo" class="form-label">Assigned To</label>
-                <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo">
+                <input type="text" placeholder="Assigned to" class="form-control" id="assignedTo" name="assignedTo" required>
+                <div class="invalid-feedback">Requires a name.</div>
+                
               </div>
               <div class="mb-3 col-md-6">
                 <label for="dueDate" class="form-label">Due Date</label>
-                <input type="text" placeholder="Due Date" class="form-control" id="dueDate" name="dueDate">
+                <input type="date" placeholder="Due Date" class="form-control" id="dueDate" name="dueDate" required>
+                <div class="invalid-feedback">Can't be in the past</div>
+              
               </div>
               <div class="mb-3 col-md-6">
                 <label for="taskStatus" class="form-label"> Task Status</label>
-                <select class="form-select" aria-label="Default select example" name="taskStatus">
-                  <option selected>Select Task Status</option>
+                <select class="form-select custom-select" aria-label="Default select example" name="taskStatus" id="taskStatus" required>
+                  <option value="" selected>Select Task Status</option>
                   <option value="1" class="taskStatusToDo">To Do</option>
                   <option value="2" class="taskStatusInProgress">In Progress</option>
                   <option value="3" class="taskStatusReview">Review</option>
                   <option value="4" class="taskStatusDone">Done</option>
                 </select>
+                <div class="invalid-feedback">Please select a Task Status</div>
+               
               </div>
               <div class="mb-3 col-md-6">
                 <label for="descriptionBox" class="form-label">Description</label>
-                <textarea type="text" class="form-control" id="descriptionBox" name="description"></textarea>
+                <textarea type="text" class="form-control" id="descriptionBox" name="description" minlength="5" required></textarea>
+                <div class="invalid-feedback">Please descibe the task.</div>
+               
               </div>
 
-              <div><button type="submit" class="btn btn-primary">Submit</button>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnSubmit">Add Task</button>
               </div>
           </form>
         </div>
