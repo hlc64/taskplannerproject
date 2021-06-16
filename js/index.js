@@ -6,6 +6,11 @@ const hmTaskManager = new TaskManager();
 window.addEventListener('load', function () {
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.getElementsByClassName('needs-validation');
+  // Trim fields on focusout event
+  document.querySelector('#taskName').addEventListener('focusout', function(event) {
+    event.target.value = event.target.value.trim();
+  })
+
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
     form.addEventListener('submit', function (event) {
@@ -27,20 +32,13 @@ window.addEventListener('load', function () {
           assignedTo.value, 
           dueDate.value,
           taskStatus.value
-        );
-        // const html = createTaskHtml(
-        //   taskName.value, 
-        //   descriptionBox.value, 
-        //   assignedTo.value, 
-        //   dueDate.value,
-        //   taskStatus.value
-        // );
-        
+        );               
 
         event.preventDefault();
         document.querySelector('form').reset();
         // console.log(hmTaskManager.tasks);
         hmTaskManager.render();
+
       }
     }, false);
   });
@@ -67,14 +65,12 @@ window.addEventListener('load', function () {
 
 const taskLists = document.querySelectorAll('.list-group');
 
+// assign the click listener to cards
 
-/**
- * IMPORTANT!!!
- *  GO OVER CODE TO UNDERSTAND on Tuesday!
- */
 for (const list of taskLists) {
   list.addEventListener('click', evt => {
     const element = evt.target;
+    console.log(element);
     if (element.classList.contains('card-icon-check')) {
       const card = element.parentNode.parentNode.parentNode;
       const id = Number(card.getAttribute('data-task-id'));
@@ -84,3 +80,6 @@ for (const list of taskLists) {
     }
   });
 }
+
+
+
