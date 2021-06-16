@@ -16,10 +16,11 @@ window.addEventListener('load', function () {
 
   // trim and re-validate input fields
   const taskName = document.querySelector('#taskName');
-  taskName.addEventListener('focusout', evt => {
-    taskName.value = taskName.value.trim();
-    if (taskName.value.length < 5) {
-      taskName.setCustomValidity('wtf man');
+  taskName.addEventListener('input', evt => {
+    if (taskName.value.trim().length < 5) {
+      taskName.setCustomValidity('MMM, fudgy!');
+    } else {
+      taskName.setCustomValidity('');
     }
   });
 
