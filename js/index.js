@@ -6,10 +6,14 @@ const hmTaskManager = new TaskManager();
 window.addEventListener('load', function () {
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.getElementsByClassName('needs-validation');
-  // Trim fields on focusout event
-  document.querySelector('#taskName').addEventListener('focusout', function(event) {
-    event.target.value = event.target.value.trim();
-  })
+  
+  // assign modal toggle to the add-task-button
+  const form_modal = new bootstrap.Modal(document.querySelector('#addTaskForm'));
+
+  document.querySelector('#add-task-button').addEventListener('click', evt => {
+    // toggle the modal
+    form_modal.show();
+  });
 
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
@@ -27,18 +31,18 @@ window.addEventListener('load', function () {
         const taskStatus = document.querySelector("#taskStatus");
         const descriptionBox = document.querySelector("#descriptionBox");
         hmTaskManager.addTask(
-          taskName.value, 
-          descriptionBox.value, 
-          assignedTo.value, 
+          taskName.value,
+          descriptionBox.value,
+          assignedTo.value,
           dueDate.value,
           taskStatus.value
-        );               
+        );
 
         event.preventDefault();
         document.querySelector('form').reset();
         // console.log(hmTaskManager.tasks);
         hmTaskManager.render();
-
+        form_modal.hide();
       }
     }, false);
   });
@@ -48,7 +52,7 @@ window.addEventListener('load', function () {
   const dueDate = document.querySelector('#dueDate');
 
   const yyyy = today.getFullYear();
-  const mm = `0${ today.getMonth()+1 }`.slice(-2);
+  const mm = `0${today.getMonth() + 1}`.slice(-2);
   const dd = today.getDate();
 
   const todaysDate = `${yyyy}-${mm}-${dd}`;
@@ -57,7 +61,7 @@ window.addEventListener('load', function () {
   // generate random tasks and render them
   for (let i = 0; i < 15; i++)
     hmTaskManager.addRandomTask();
-  
+
   hmTaskManager.render();
 
 }, false);
