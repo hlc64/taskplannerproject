@@ -9,11 +9,20 @@ window.addEventListener('load', function () {
   
   // assign modal toggle to the add-task-button
   const form_modal = new bootstrap.Modal(document.querySelector('#addTaskForm'));
-
   document.querySelector('#add-task-button').addEventListener('click', evt => {
     // toggle the modal
     form_modal.show();
   });
+
+  // trim and re-validate input fields
+  const taskName = document.querySelector('#taskName');
+  taskName.addEventListener('focusout', evt => {
+    taskName.value = taskName.value.trim();
+    if (taskName.value.length < 5) {
+      taskName.setCustomValidity('wtf man');
+    }
+  });
+
 
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
