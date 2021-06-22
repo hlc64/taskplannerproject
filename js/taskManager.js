@@ -122,6 +122,30 @@ class TaskManager {
     // }
   }
 
+  deleteTask(taskId) {
+    const newTasks = [];
+    for(let task of this._tasks){
+      if(task.id !== taskId){
+        newTasks.push(task);        
+      }
+    }
+    this._tasks = newTasks; 
+  }
+
+  save() {
+    const tasksJson = JSON.stringify(this._tasks);
+    localStorage.setItem('tasks', tasksJson);
+    const currentId = this._currentId.toString();
+    localStorage.setItem('currentId', currentId);
+  }
+
+  load() {
+    const retrievedTasks = localStorage.getItem('tasks');
+    this._tasks = JSON.parse(retrievedTasks) || [];
+    const currentId = localStorage.getItem('currentId');
+    this._currentId = parseInt(currentId) || 0;
+  }
+
   addRandomTask() {
     const getRandomElement = (array) => array[Math.floor(Math.random() * array.length)];
     const getRandomInt = (startNumber, window) => startNumber + Math.floor( Math.random() * window );

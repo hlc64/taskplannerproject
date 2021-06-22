@@ -73,6 +73,12 @@ a {
   text-decoration: none;
 }
 
+.card-header {
+  color:rgb(104, 103, 103);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .card-footer {
   min-height: 50px;
 }

@@ -27,8 +27,7 @@
         <h3 class="text-secondary fst-italic">Task Managers Extraordinaire</h3>
       </div>
       <div class="col-4 text-end">
-        <a class="bi bi-plus-circle-fill add-task-icon" data-bs-toggle="modal" data-bs-target="#addTaskForm"
-          role="button"></a>
+        <a class="bi bi-plus-circle-fill add-task-icon" id="add-task-button" role="button"></a>
           <i class="bi "></i>
         <a class="bi bi-info-circle-fill add-task-icon" href="#" role="button"></a>
       </div>
@@ -41,11 +40,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col mx-3">
-        <h3 class="taskStatusToDo bg-light taskStatusToDo-border">TO DO</h3>
+        <h3 class="taskStatusToDo bg-light taskStatusToDo-border text-center">TO DO</h3>
         <ul id="toDoList" class="list-group list-group-flush">
+          <!-- CARD 1 -->
+<!-- 
           <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
             <a data-bs-toggle="collapse" href="#card-collapse-1">
-
               <div class="card-header m-0">
                 Create Cards / List Group
               </div>
@@ -63,381 +63,28 @@
                   does. Should the reference of this task be unclear, this is where you would check. </p>
               </div>
             </div>
-            <!-- </div> -->
           </li>
+           -->
           <!-- CARD 1 ENDS -->
 
-          <!-- CARD 2 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-           
-              <a data-bs-toggle="collapse" href="#card-collapse-2">
-
-                <div class="card-header">
-                  Implement Card Status
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-2">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-hayley me-2"></div> Hayley
-                  </h5>
-                  <p class="card-text">18 May 2021</p>
-                  <p class="card-text taskStatusToDo">To do</p>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dignissimos numquam
-                    animi perferendis soluta nesciunt! Obcaecati laborum dicta vitae nemo eius quibusdam alias, possimus
-                    ex. Incidunt, culpa! Illum, perferendis laborum.</p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 2 END -->
-
-          <!-- CARD 3 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-3">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-3">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-hayley me-2"></div> Hayley
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusToDo">To do</p>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In laborum placeat
-                    nobis, veniam quos impedit voluptate eius animi illum labore sint molestiae voluptatum sequi.
-                    Commodi, consectetur. Incidunt rerum tempora voluptas.</p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 3 ENDS -->
-
-          <!-- CARD 4 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-4">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-4">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">21 May 2021</p>
-                  <p class="card-text taskStatusToDo">To do</p>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos cum
-                    ullam perspiciatis ab, officiis, impedit totam enim asperiores assumenda illum voluptate et repellat
-                    eaque odio a quas aliquid dolore.</p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 4 ENDS -->
-
-          <!-- CARD 5 -->
-
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-5">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-5">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusToDo">To do</p>
-                  <p class="card-text">Et repudiandae inventore temporibus cumque suscipit assumenda nulla, illum earum
-                    sapiente! Repellendus esse perferendis mollitia assumenda ipsam quasi sed. Modi, fugit fuga.</p>
-                </div>
-              </div>
-            
-            <!--end-div card-->
-          </li>
         </ul>
 
       </div>
       <div class="col mx-3">
-        <h3 class="taskStatusInProgress bg-light taskStatusInProgress-border">IN PROGRESS</h3>
+        <h3 class="taskStatusInProgress bg-light taskStatusInProgress-border text-center">IN PROGRESS</h3>
         <ul id="inProgressList" class="list-group">
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-           
-              <a data-bs-toggle="collapse" href="#card-collapse-6">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-6">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-hayley me-2"></div> Hayley
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusInProgress">In progress</p>
-                  <p class="card-text">Doloribus debitis nihil et corrupti ut. At deserunt eius quia sapiente, nesciunt
-                    pariatur quaerat doloribus quas quibusdam necessitatibus, recusandae fugiat vel dolor!</p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 1 ENDS -->
-
-          <!-- CARD 2 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-7">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-7">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusInProgress">In progress</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 2 END -->
         </ul>
 
       </div>
       <div class="col mx-3">
-        <h3 class="taskStatusReview bg-light taskStatusReview-border">REVIEW</h3>
+        <h3 class="taskStatusReview bg-light taskStatusReview-border text-center">REVIEW</h3>
         <ul id="reviewList" class="list-group">
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-8">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-8">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusReview">Review</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 1 ENDS -->
-
-          <!-- CARD 2 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-9">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-9">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusReview">Review</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 2 END -->
-
-          <!-- CARD 3 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-10">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse show" id="card-collapse-10">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusReview">Review</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 3 ENDS -->
-
         </ul>
 
       </div>
       <div class="col mx-3">
-        <h3 class="taskStatusDone bg-light taskStatusDone-border">DONE</h3>
+        <h3 class="taskStatusDone bg-light taskStatusDone-border text-center">DONE</h3>
         <ul id="doneList" class="list-group">
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-11">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse" id="card-collapse-11">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusDone">Done</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 1 ENDS -->
-
-          <!-- CARD 2 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-12">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse" id="card-collapse-12">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusDone">Done</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 2 END -->
-
-          <!-- CARD 3 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-13">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse" id="card-collapse-13">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusDone">Done</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 3 ENDS -->
-
-          <!-- CARD 4 -->
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-14">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse" id="card-collapse-14">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusDone">Done</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-          </li>
-          <!-- CARD 4 ENDS -->
-
-          <!-- CARD 5 -->
-
-          <li class="list-group-item card p-0 m-0 mb-3 border-1 rounded-3">
-            
-              <a data-bs-toggle="collapse" href="#card-collapse-15">
-
-                <div class="card-header">
-                  Create Cards / List Group
-                </div>
-              </a>
-              <div class="collapse" id="card-collapse-15">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <div class="icon-meng me-2"></div> Meng
-                  </h5>
-                  <p class="card-text">17 May 2021</p>
-                  <p class="card-text taskStatusDone">Done</p>
-                  <p class="card-text">This is the task description. It describes the task. Describing the task is
-                    what
-                    this
-                    does. Should the reference of this task be unclear, this is where you would check. </p>
-                </div>
-              </div>
-            
-            <!--end-div card-->
-          </li>
         </ul>
 
       </div>
