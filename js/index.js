@@ -1,6 +1,6 @@
 const hmTaskManager = new TaskManager();
-
-
+hmTaskManager.load();
+hmTaskManager.render();
 
 
 window.addEventListener('load', function () {
@@ -28,18 +28,22 @@ window.addEventListener('load', function () {
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
     form.addEventListener('submit', function (event) {
+      // if any form fields are invalid...
       if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
         form.classList.add('was-validated');
-      } else {
+      }
+      // if all form fields are valid...
+      else {
         form.classList.remove('was-validated');
-
+        // getting values from form fields
         const taskName = document.querySelector("#taskName");
         const assignedTo = document.querySelector("#assignedTo");
         const dueDate = document.querySelector("#dueDate");
         const taskStatus = document.querySelector("#taskStatus");
         const descriptionBox = document.querySelector("#descriptionBox");
+        // adding task
         hmTaskManager.addTask(
           taskName.value,
           descriptionBox.value,
@@ -50,9 +54,12 @@ window.addEventListener('load', function () {
 
         event.preventDefault();
         document.querySelector('form').reset();
-        // console.log(hmTaskManager.tasks);
+        
         hmTaskManager.render();
         form_modal.hide();
+        
+        // save to persistent storage
+        hmTaskManager.save();
       }
     }, false);
   });
@@ -69,8 +76,8 @@ window.addEventListener('load', function () {
   dueDate.setAttribute('min', todaysDate);
 
   // generate random tasks and render them
-  for (let i = 0; i < 15; i++)
-    hmTaskManager.addRandomTask();
+  // for (let i = 0; i < 5; i++)
+  //   hmTaskManager.addRandomTask();
 
   hmTaskManager.render();
 
@@ -79,7 +86,7 @@ window.addEventListener('load', function () {
 
 const taskLists = document.querySelectorAll('.list-group');
 
-// assign the click listener to cards
+// assign the Done-button click listener to all cards
 
 for (const list of taskLists) {
   list.addEventListener('click', evt => {
@@ -91,9 +98,9 @@ for (const list of taskLists) {
       const task = hmTaskManager.getTaskById(id);
       task.status = '4';
       hmTaskManager.render();
+
+      // saving to persistent storage
+      hmTaskManager.save();
     }
   });
 }
-
-
-
