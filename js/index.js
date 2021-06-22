@@ -75,9 +75,12 @@ window.addEventListener('load', function () {
   const todaysDate = `${yyyy}-${mm}-${dd}`;
   dueDate.setAttribute('min', todaysDate);
 
-  // generate random tasks and render them
-  // for (let i = 0; i < 5; i++)
-  //   hmTaskManager.addRandomTask();
+ // generate random tasks and render them
+ if(hmTaskManager.tasks.length === 0) {
+    for (let i = 0; i < 5; i++)
+      hmTaskManager.addRandomTask();
+      hmTaskManager.save();
+ } 
 
   hmTaskManager.render();
 
@@ -101,6 +104,16 @@ for (const list of taskLists) {
 
       // saving to persistent storage
       hmTaskManager.save();
+    }else if (element.classList.contains('card-icon-delete')) {
+      const card = element.parentNode.parentNode.parentNode;
+      const id = Number(card.getAttribute('data-task-id'));
+      hmTaskManager.deleteTask(id);
+      hmTaskManager.save();
+      hmTaskManager.render();
     }
   });
+
+
 }
+
+

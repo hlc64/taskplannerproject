@@ -122,6 +122,16 @@ class TaskManager {
     // }
   }
 
+  deleteTask(taskId) {
+    const newTasks = [];
+    for(let task of this._tasks){
+      if(task.id !== taskId){
+        newTasks.push(task);        
+      }
+    }
+    this._tasks = newTasks; 
+  }
+
   save() {
     const tasksJson = JSON.stringify(this._tasks);
     localStorage.setItem('tasks', tasksJson);
