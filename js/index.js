@@ -24,6 +24,24 @@ window.addEventListener('load', function () {
     }
   });
 
+  const assignedTo = document.querySelector('#assignedTo');
+  assignedTo.addEventListener('input', evt => {
+    if (assignedTo.value.trim().length < 3) {
+      assignedTo.setCustomValidity('MMM, fudgy!');
+    } else {
+      assignedTo.setCustomValidity('');
+    }
+  });
+
+  const description = document.querySelector('#descriptionBox');
+  description.addEventListener('input', evt => {
+    if (description.value.trim().length < 5) {
+      description.setCustomValidity('MMM, fudgy!');
+    } else {
+      description.setCustomValidity('');
+    }
+  });
+
 
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
