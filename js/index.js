@@ -88,7 +88,7 @@ window.addEventListener('load', function () {
 
   const yyyy = today.getFullYear();
   const mm = `0${today.getMonth() + 1}`.slice(-2);
-  const dd = today.getDate();
+  const dd = `0${today.getDate()}`.slice(-2);
 
   const todaysDate = `${yyyy}-${mm}-${dd}`;
   dueDate.setAttribute('min', todaysDate);
